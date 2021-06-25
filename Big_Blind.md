@@ -1,4 +1,4 @@
-##big-blind 136 solves / 444 points ##
+## big-blind 136 solves / 444 points ##
 ## Description:
 https://big-blind.hsc.tf
 ## Solution:
